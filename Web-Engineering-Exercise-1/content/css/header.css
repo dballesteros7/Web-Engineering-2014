@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+/* Define rules for the header
+   This should be used in all pages */
+
+/* This makes the elements in line, and uses a particular background color (orange-ish).
+   From the given mockup it is possible to see some padding inside the elements.
+   There is also a small (2px probably) border made of gray.
+*/
+#header h1 {
+  margin-bottom: 0.278em;
+}
+#header .nav {
+  width: 93.3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header .nav li {
+  display: inline-block;
+  background-color: #FFA500;
+  padding: 0.5em;
+  border: 0.2em solid #C0C0C0;
+}
+#header .nav li a{
+  font-size: 1.6em;
+}
+
+/* The header div should be centered */
+#header {
+  width: 30em;
+  margin: 1em auto 2em auto;
+  clear: both;
+}

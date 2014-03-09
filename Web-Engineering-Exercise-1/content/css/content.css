@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+#content {
+  background-color: #FFA500;
+  border-radius: 1em;
+  margin: 0em 21.5% 0em 18em;
+  padding: 0.1em 0em 0.1em 0em;
+}
+
+.article {
+  background-color: #FFF0F5;
+  margin: 1.5em;
+  border-radius: 1em;
+  padding: 1em 1em;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.article p{
+  font-size: 1.6em;
+}
+
+.article h2 {
+  margin-bottom: 0.333em;
+}
+
+.article p+a {
+  display: block;
+  margin-top: 1.25em;
+  margin-bottom: 0.625em;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.article-text img {
+  margin-right: 1em;
+}
+.article-author {
+  font-size: 1.4em;
+  float: right;
+}
+.article.link {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.profile-row {
+  width: 100%;
+}
+
+.profile-row>.profile {
+  margin: 5px auto;
+  width: 48%;
+  display: inline-block;
+}
+
+.profile-row>.profile p:first-of-type {
+  margin-bottom: 10px;
+}
+
+.profile-row>.profile img {
+  max-width: 128px;
+}
+
+#main-image {
+  overflow: hidden;
+  margin: 5px 5px 0px 5px;
+  line-height: 0;
+}
+
+#main-image img {
+  max-height: 50%;
+}
+
+.weekly-suggestion h1 {
+  margin-bottom: 15px;
+}
+
+.thumbnail {
+  display: block;
+  margin: 0px auto 5px auto;
+}
+
+.quote {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+.signature {
+  float: right;
+  margin-bottom: 100px;
+}
+
+.signature img {
+  max-width: 72px;
+  height: auto;
+  float: right;
+}
+
+.signature span {
+  clear: right;
+  display: block;
+  font-weight: bold;
+}

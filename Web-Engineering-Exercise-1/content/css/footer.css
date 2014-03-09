@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+/* Define rules for the footer
+   This should be used in all pages */
+
+/* The footer is at the bottom with nothing on its sides, it starts where the menu ends */
+#footer {
+  color: #808080;
+  clear: both;
+  margin: 1em 0em 1em 18em;
+  line-height: 2;
+}
+
+#footer .nav li {
+  font-size: 1.4em;
+  font-weight: bold;
+  display: inline;
+}
+
+#footer span {
+  font-size: 1.2em;
+}
