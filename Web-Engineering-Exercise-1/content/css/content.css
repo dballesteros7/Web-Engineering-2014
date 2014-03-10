@@ -24,7 +24,7 @@
   font-size: 1.6em;
 }
 
-.article-text h2 {
+.article h2 {
   margin-bottom: 0.333em;
 }
 
@@ -80,61 +80,111 @@
 }
 
 /* ==========================================================================*/
-.profile-row {
-  width: 100%;
+/* Reviewers.html */
+/* ==========================================================================*/
+.profile-row:not(:last-of-type) {
+  margin-bottom: 1em;
 }
 
-.profile-row>.profile {
-  margin: 5px auto;
-  width: 48%;
+.main-profile {
+  width: calc(50% - 0.5em);
   display: inline-block;
+  vertical-align: top;
 }
 
-.profile-row>.profile p:first-of-type {
-  margin-bottom: 10px;
+.main-profile:first-of-type {
+  margin-right: 1em;
 }
 
-.profile-row>.profile img {
-  max-width: 128px;
+.main-profile p {
+  font-size: 1.6em;
 }
 
+.main-profile p:first-of-type {
+  margin-bottom: 0.625em;
+}
+
+.main-profile img {
+  float: left;
+  max-width: 20%;
+  margin-right: 1em;
+}
+
+/* For widths up to 479, make it pretty */
+@media ( max-width : 479px) {
+  .main-profile p {
+    clear: left;
+  }
+}
+
+/* ==========================================================================*/
+/* Weekly.html */
+/* ==========================================================================*/
 #main-image {
   overflow: hidden;
-  margin: 5px 5px 0px 5px;
+  margin: 0em 1em;
   line-height: 0;
+  border-radius: 1em;
 }
 
 #main-image img {
+  border-radius: 0em;
+  width: auto;
   max-height: 50%;
+  width: auto;
 }
 
-.weekly-suggestion h1 {
-  margin-bottom: 15px;
+.weekly-suggestion h2 {
+  margin-bottom: 0.667em;
+}
+
+.weekly-suggestion p {
+  font-size: 1.6em;
 }
 
 .thumbnail {
+  max-width: calc(100% - 2em);
   display: block;
-  margin: 0px auto 5px auto;
+  margin: 0em auto 1em auto;
 }
 
 .quote {
-  margin-top: 15px;
+  margin: 0.625em 0em;
   font-style: italic;
 }
 
 .signature {
   float: right;
-  margin-bottom: 100px;
+  margin-bottom: 10em;
 }
 
 .signature img {
-  max-width: 72px;
+  max-width: 20%;
   height: auto;
   float: right;
 }
 
 .signature span {
-  clear: right;
-  display: block;
+  clear: both;
+  float: right;
   font-weight: bold;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+@media ( orientation : landscape) {
+  #main-image {
+    overflow-x: auto;
+  }
+}
+
+@media ( orientation : portrait) {
+  #main-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+  }
+  .thumbnail {
+    display: none;
+  }
 }
