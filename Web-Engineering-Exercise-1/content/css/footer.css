@@ -7,7 +7,7 @@
 #footer {
   color: #808080;
   clear: both;
-  margin: 1em 0em 1em 18em;
+  margin: 1em 1em 1em 19em;
   line-height: 2;
 }
 
@@ -19,4 +19,10 @@
 
 #footer span {
   font-size: 1.2em;
+}
+
+@media ( max-width : 767px) {
+  #footer {
+    margin: 1em;
+  }
 }

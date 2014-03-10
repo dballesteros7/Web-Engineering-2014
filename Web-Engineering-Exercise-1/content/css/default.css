@@ -19,16 +19,19 @@ body {
 
 /* Make sure the main div spans the whole width */
 #main {
-  position: relative;
   max-width: 100%;
 }
 
-/* Header definitions */
+#central {
+  position: relative;
+}
 
+/* Header definitions */
 h1 {
   font-weight: 500;
   font-size: 3.6em;
 }
+
 h2 {
   font-weight: 500;
   font-size: 3em;
@@ -42,4 +45,9 @@ h3 {
 h4 {
   font-weight: 500;
   font-size: 1.8em;
+}
+
+/* All images have rounded corners because that is cool */
+img {
+  border-radius: 1em;
 }

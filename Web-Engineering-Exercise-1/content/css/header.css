@@ -10,6 +10,7 @@
 #header h1 {
   margin-bottom: 0.278em;
 }
+
 #header .nav {
   width: 93.3%;
   margin-left: auto;
@@ -22,7 +23,8 @@
   padding: 0.5em;
   border: 0.2em solid #C0C0C0;
 }
-#header .nav li a{
+
+#header .nav li a {
   font-size: 1.6em;
 }
 
