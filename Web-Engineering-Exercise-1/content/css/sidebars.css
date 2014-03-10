@@ -123,77 +123,56 @@
   height: auto;
 }
 
-@media
-(
-min-width
-:
-1280px)
-,
-(
-max-width
-:
-1023px)
-{
-.social img {
-  max-width: 128px;
-  /* To prevent the twitter logo from outgrowing the fb one */
+@media ( min-width : 1280px) , ( max-width : 767px) {
+  .social img {
+    max-width: 128px;
+    /* To prevent the twitter logo from outgrowing the fb one */
+  }
 }
 
-}
-@media
-(
-max-width
-:
-276px
-)
-{
-.social img {
-  max-width: 100%;
-}
-
+@media ( max-width : 276px ) {
+  .social img {
+    max-width: 100%;
+    /* At this point, the logos in the bottom will outsize the container */
+  }
 }
 
 /* For widths below 1024px, the right sidebar moves down */
-@media
-(
-max-width
-:
-1023px)
-{
-#right-sidebar {
-  position: initial;
-  margin: 1em 1em 1em 19em;
-  width: calc(100% - 20em);
-}
-
-.profile {
-  text-align: center;
-}
-
-.profile img {
-  max-width: 10%;
-}
-
+@media ( max-width : 1023px) {
+  #right-sidebar {
+    right: initial;
+    left: 0;
+    top: 20em;
+    margin: 0em 0em 0em 1em;
+    width: 17em;
+  }
 }
 /* For widths below 768, the menu moves up */
-@media
-(
-max-width
-:
-767px)
-{
-#left-menu {
-  float: none;
-  margin: 1em;
-  width: initial;
+@media ( max-width : 767px) {
+  #left-menu {
+    float: none;
+    margin: 1em;
+    width: initial;
+  }
+  #right-sidebar {
+    position: initial;
+    margin: 1em;
+    width: calc(100% - 2em);
+  }
+  .profile {
+    text-align: center;
+  }
+  .profile img {
+    max-width: 20%;
+  }
 }
 
-#right-sidebar {
-  margin-left: 1em;
-  width: calc(100% - 2em);
+@media ( max-width : 479px) {
+  .profile {
+    text-align: initial;
+  }
 }
 
-}
 .review {
   text-align: center;
   font-weight: bold;
