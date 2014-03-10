@@ -2,19 +2,14 @@
 
 /* Define rules for the header
    This should be used in all pages */
-
-/* This makes the elements in line, and uses a particular background color (orange-ish).
-   From the given mockup it is possible to see some padding inside the elements.
-   There is also a small (2px probably) border made of gray.
-*/
-#header h1 {
-  margin-bottom: 0.278em;
+#header {
+  margin: 1em auto 2em auto;
+  clear: both;
+  text-align: center;
 }
 
-#header .nav {
-  width: 93.3%;
-  margin-left: auto;
-  margin-right: auto;
+#header h1 {
+  margin-bottom: 0.278em;
 }
 
 #header .nav li {
@@ -26,11 +21,4 @@
 
 #header .nav li a {
   font-size: 1.6em;
-}
-
-/* The header div should be centered */
-#header {
-  width: 30em;
-  margin: 1em auto 2em auto;
-  clear: both;
 }
