@@ -119,18 +119,11 @@
 }
 
 .social img {
-  max-width: 100%;
+  max-width: 48px;
   height: auto;
 }
 
-@media ( min-width : 1280px) , ( max-width : 767px) {
-  .social img {
-    max-width: 128px;
-    /* To prevent the twitter logo from outgrowing the fb one */
-  }
-}
-
-@media ( max-width : 276px ) {
+@media ( max-width : 116px ) {
   .social img {
     max-width: 100%;
     /* At this point, the logos in the bottom will outsize the container */
