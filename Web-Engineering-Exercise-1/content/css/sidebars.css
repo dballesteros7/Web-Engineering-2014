@@ -34,8 +34,17 @@
   text-align: center;
 }
 
-#left-menu .menu li a {
+#left-menu .menu li>a {
   font-size: 1.6em;
+}
+
+/* Hidden menu element for accordion functionality */
+#left-menu .menu li:nth-child(2) {
+  display: none;
+  border-bottom: 0em;
+  background-color: #FFF0F5;
+  padding: 0.2em 0em;
+  text-align: center;
 }
 
 /* Format the divs on the right part */
@@ -119,81 +128,69 @@
 }
 
 .social img {
-  max-width: 100%;
+  max-width: 48px;
   height: auto;
 }
 
-@media
-(
-min-width
-:
-1280px)
-,
-(
-max-width
-:
-1023px)
-{
-.social img {
-  max-width: 128px;
-  /* To prevent the twitter logo from outgrowing the fb one */
-}
-
-}
-@media
-(
-max-width
-:
-276px
-)
-{
-.social img {
-  max-width: 100%;
-}
-
+@media ( max-width : 116px ) {
+  .social img {
+    max-width: 100%;
+    /* At this point, the logos in the bottom will outsize the container */
+  }
 }
 
 /* For widths below 1024px, the right sidebar moves down */
-@media
-(
-max-width
-:
-1023px)
-{
-#right-sidebar {
-  position: initial;
-  margin: 1em 1em 1em 19em;
-  width: calc(100% - 20em);
-}
-
-.profile {
-  text-align: center;
-}
-
-.profile img {
-  max-width: 10%;
-}
-
+@media ( max-width : 1023px) {
+  #right-sidebar {
+    right: initial;
+    left: 0;
+    top: 20em;
+    margin: 0em 0em 0em 1em;
+    width: 17em;
+  }
 }
 /* For widths below 768, the menu moves up */
-@media
-(
-max-width
-:
-767px)
-{
-#left-menu {
-  float: none;
-  margin: 1em;
-  width: initial;
+@media ( max-width : 767px) {
+  #left-menu {
+    float: none;
+    margin: 1em;
+    width: initial;
+  }
+  #right-sidebar {
+    position: initial;
+    margin: 1em;
+    width: calc(100% - 2em);
+  }
+  .profile {
+    text-align: center;
+  }
+  .profile img {
+    max-width: 20%;
+  }
 }
 
-#right-sidebar {
-  margin-left: 1em;
-  width: calc(100% - 2em);
+/* Accordion menu when the menu moves up */
+@media ( max-width : 767px) {
+  #menu-closed:target {
+    display: none;
+  }
+  #menu-closed:target ~ li {
+    display: none;
+  }
+  #menu-closed:target+li {
+    display: inherit !important;
+  }
 }
 
+@media ( max-width : 479px) {
+  .profile {
+    text-align: initial;
+  }
 }
+
+/* ==========================================================================*/
+/* Reviewers.html, Weekly.html */
+/* ==========================================================================*/
 .review {
   text-align: center;
   font-weight: bold;
@@ -201,5 +198,7 @@ max-width
 
 .review img {
   display: block;
-  margin: 5px auto;
+  max-width: 100%;
+  height: auto;
+  margin: 1em auto;
 }
