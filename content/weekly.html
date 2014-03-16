@@ -45,10 +45,12 @@
             <a href="#">ETH suggests..</a>
           </h2>
           <div id="main-image">
-            <img src='images/sydney-harbour-panorama1bl.jpg' />
+            <img draggable="false" src='images/sydney-harbour-panorama1bl.jpg' />
           </div>
-          <img class="rounded thumbnail" width="400px"
-            src='images/sydney-harbour-panorama1bl-thumbnail.jpg' />
+          <div id="thumbnail">
+            <div class="overlay"></div>
+            <img src='images/sydney-harbour-panorama1bl-thumbnail.jpg' />
+          </div>
           <h3>This week's winner is... Sydney, Australia</h3>
           <p>Sydney is the state capital of New South Wales and the
             most populous city in Australia. It is on Australia's
@@ -100,5 +102,8 @@
       <span>&#169; Copyright 2014. All rights reserved</span>
     </div>
   </div>
+  <script type="text/javascript" src="js/vendor/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="js/interactive-viewport.js"></script>
+  <script type="text/javascript" src="js/weekly.js"></script>
 </body>
 </html>

@@ -82,10 +82,9 @@
 /* ==========================================================================*/
 /* Reviewers.html */
 /* ==========================================================================*/
-.profile-row:not(:last-of-type) {
-  margin-bottom: 1em;
+.profile-row :not(:last-of-type){
+    margin-bottom : 1em;
 }
-
 .main-profile {
   width: calc(50% - 0.5em);
   display: inline-block;
@@ -132,6 +131,8 @@
   width: auto;
   max-height: 50%;
   width: auto;
+  position: relative;
+  left: 0em;
 }
 
 .weekly-suggestion h2 {
@@ -142,10 +143,24 @@
   font-size: 1.6em;
 }
 
-.thumbnail {
-  max-width: calc(100% - 2em);
-  display: block;
+#thumbnail {
+  max-width: calc(50% - 2em);
   margin: 0em auto 1em auto;
+  position: relative;
+  line-height: 0;
+}
+
+#thumbnail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  border: 0.4em solid black;
+  width: calc(100% - 0.4em);
+  height: calc(100% - 0.8em);
+  border-radius: 1em;
 }
 
 .quote {
@@ -172,13 +187,15 @@
   font-weight: bold;
 }
 
+/*
 @media ( orientation : landscape) {
   #main-image {
     overflow-x: auto;
   }
 }
+*/
 
-@media ( orientation : portrait) {
+/* @media ( orientation : portrait) {
   #main-image img {
     max-width: 100%;
     height: auto;
@@ -187,4 +204,5 @@
   .thumbnail {
     display: none;
   }
-}
+} */
+
