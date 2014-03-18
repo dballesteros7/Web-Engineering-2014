@@ -68,4 +68,28 @@ function interactive($mainDiv, $thumbDiv){
         var newPosition = -relPos * imgWidth;
         $imgObj.css("left", newPosition + "px");
     });
+    var currentPos = 0;
+    var direction = false; // False is left, true is right
+    var speed = 200;
+    var movementRange = 10;
+    function animate(){
+        if (startX == -1) {
+            if (currentPos > (containerWidth - imgWidth + movementRange)
+                    && !direction) {
+                currentPos -= movementRange;
+                $imgObj.animate({
+                    left : currentPos + "px"
+                }, movementRange * 1000 / speed, "linear", animate);
+            } else if (currentPos < -movementRange && direction) {
+                currentPos += movementRange;
+                $imgObj.animate({
+                    left : currentPos + "px"
+                }, movementRange * 1000 / speed, "linear", animate);
+            } else {
+                direction = !direction;
+                animate();
+            }
+        }
+    }
+    animate();
 }
