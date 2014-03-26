@@ -12,139 +12,146 @@
 <title>Evaluate Thy Hotel</title>
 </head>
 <body>
-  <section id="main">
+  <!-- Please have a look at the comments and let me know if you disagree with them, also check this nice article, I agree mostly with what he wrote http://html5doctor.com/avoiding-common-html5-mistakes/ -->
+  <div id="main">
+    <!-- This is not really a "piece of content", we created this div because of styling reasons (e.g. setting a 100% width wrapper) it doesn't define semantic content IMHO -->
     <header id="header">
       <h1>
         <a href="#">Evaluate Thy Hotel</a>
       </h1>
-      <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="weekly.html">Weekly Location</a></li>
-        <li><a href="reviewers.html">Reviewers</a></li>
-      </ul>
+      <nav>
+        <!-- This is a main navigation component of the page, it should have a nav wrapper -->
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="weekly.html">Weekly Location</a></li>
+          <li><a href="reviewers.html">Reviewers</a></li>
+        </ul>
+      </nav>
     </header>
-    <section id="central">
-      <aside id="left-menu" class="sidebar">
-        <nav>
-          <ul class="menu">
-            <li id="menu-closed"><h3>
-                <a href="#menu-closed">Menu</a>
-              </h3></li>
-            <li><h3>
-                <a href="#">Menu</a>
-              </h3></li>
-            <li><a href="#">Reviewed Hotels</a></li>
-            <li><a href="#">Get Reviewed</a></li>
-            <li><a href="#">Guidelines</a></li>
-            <li><a href="#">User Feedback</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
-        </nav>
-      </aside>
+    <div id="central">
+      <nav id="left-menu" class="sidebar">
+        <!-- A sidebar is not an aside (check Moria's slides), also this is more likely a nav (i.e. main links for navigation) -->
+        <ul class="menu">
+          <li id="menu-closed"><h3>
+              <a href="#menu-closed">Menu</a>
+            </h3></li>
+          <li><h3>
+              <a href="#">Menu</a>
+            </h3></li>
+          <li><a href="#">Reviewed Hotels</a></li>
+          <li><a href="#">Get Reviewed</a></li>
+          <li><a href="#">Guidelines</a></li>
+          <li><a href="#">User Feedback</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </nav>
       <section id="content">
         <article class="article">
-          <section class="article-text">
-            <h2>Hotel Mec Paestum ***** - Paestum, Italy</h2>
-            <img src="images/mec-paestum-1.jpg" alt="" />
-            <p>
-              We have come to visit this beautiful place which keeps
-              record of a huge amount of historical moments, thanks to
-              the activity of the archeologists which recovered the
-              ruins of an entire roman city, Paestum, which was
-              progressively abandoned by its inhabitants.<br> This
-              beautiful and flawless hotel is located near the
-              archeological site, providing the clients a beautiful
-              sight of the famous temples which have inspired also
-              artists of the modern times, such as Pink Floyd. <br>Local
-              traditions have been influenced also by the Greeks, as
-              well as Spanish, since the south of Italy has been ruled
-              by many different powers through time. <br>Let
-              yourself being drown into history and ancient traditions,
-              enjoying both at the same time history and food. <br>This
-              region's traditions include thousands of exclusive recipes
-              with local cultivated products.
-            </p>
-            <a href="#">Read more...</a>
-          </section>
-          <section class="article-author">
+          <!--  This is not a section, this div was created for styling purposes. And on second inspection, we can simply remove it and it looks good anyway. -->
+          <h2>Hotel Mec Paestum ***** - Paestum, Italy</h2>
+          <img src="images/mec-paestum-1.jpg" alt="" />
+          <p>
+            We have come to visit this beautiful place which keeps
+            record of a huge amount of historical moments, thanks to the
+            activity of the archeologists which recovered the ruins of
+            an entire roman city, Paestum, which was progressively
+            abandoned by its inhabitants.<br> This beautiful and
+            flawless hotel is located near the archeological site,
+            providing the clients a beautiful sight of the famous
+            temples which have inspired also artists of the modern
+            times, such as Pink Floyd. <br>Local traditions have
+            been influenced also by the Greeks, as well as Spanish,
+            since the south of Italy has been ruled by many different
+            powers through time. <br>Let yourself being drown into
+            history and ancient traditions, enjoying both at the same
+            time history and food. <br>This region's traditions
+            include thousands of exclusive recipes with local cultivated
+            products.
+          </p>
+          <a href="#">Read more...</a>
+          <footer class="article-author">
+            <!-- This div looks more like a footer, semantically speaking -->
             <a href="#">Jan 23 by Mr. Anderson</a> <span>000
               views</span>
-          </section>
+          </footer>
         </article>
         <article class="article">
-          <section class="article-text">
-            <h2>Hotel Bellevue Palace Bern ***** - Bern,
-              Switzerland</h2>
-            <img class="rounded left" src="images/hotelbern.jpg" alt="" />
-            <p>This hotel is located in the heart of the city of
-              Bern and offers a huge amount of quality services. This
-              hotel has begun its activity in 1913 and was recently
-              renovated, providing even higher quality environments and
-              services to the customers.</p>
-            <a href="#">Read more...</a>
-          </section>
-          <section class="article-author right">
+          <h2>Hotel Bellevue Palace Bern ***** - Bern, Switzerland</h2>
+          <img class="rounded left" src="images/hotelbern.jpg" alt="" />
+          <p>This hotel is located in the heart of the city of Bern
+            and offers a huge amount of quality services. This hotel has
+            begun its activity in 1913 and was recently renovated,
+            providing even higher quality environments and services to
+            the customers.</p>
+          <a href="#">Read more...</a>
+          <footer class="article-author right">
             <a href="#">Jan 21 by Mr. Anderson</a> <span>000
               views</span>
-          </section>
+          </footer>
         </article>
         <article class="article">
-          <section class="article-text">
-            <h2>Hotel Sofitel Bora Bora **** - Bora Bora, French
-              Polynesia</h2>
-            <img class="rounded left" src="images/hotelborabora.jpg"
-              alt="" />
-            <p>This hotel is located in the heart of a charming sea.
-              An amazing promenade which gives the impression to walk
-              directly over water will make you feel completely
-              sorrounded by nature and relax.</p>
-            <a href="#">Read more...</a>
-          </section>
-          <section class="article-author">
+          <h2>Hotel Sofitel Bora Bora **** - Bora Bora, French
+            Polynesia</h2>
+          <img class="rounded left" src="images/hotelborabora.jpg"
+            alt="" />
+          <p>This hotel is located in the heart of a charming sea.
+            An amazing promenade which gives the impression to walk
+            directly over water will make you feel completely sorrounded
+            by nature and relax.</p>
+          <a href="#">Read more...</a>
+          <footer class="article-author">
             <a href="#">Jan 19 by Mr. Anderson</a> <span>000
               views</span>
-          </section>
+          </footer>
         </article>
-        <section class="article link">Previous reviews...</section>
+        <!-- Div for styling purposes-->
+        <div class="article link">Previous reviews...</div>
       </section>
-      <aside id="right-sidebar">
-        <section class="sidebar-content">
-          <header>
-            <h3>Meet our reviewers!</h3>
-          </header>
-          <section class="profile">
+      <section id="right-sidebar">
+        <!-- This is a div for grouping the content inside, rather than a piece of aside content. -->
+        <aside class="sidebar-content">
+          <!-- On the other hand, this is a real aside content. It represents a related piece of content to the main articles -->
+          <!-- No need for a header on every h* element, unless there is something else -->
+          <h3>Meet our reviewers!</h3>
+          <figure class="profile">
+            <!-- Figure feels appropriate here, it is also a new HTML5 element -->
+            <!-- Not real semantic sections, they were created for styling purposes -->
             <img src="images/mranderson.jpg" alt="" />
-            <section>
+            <figcaption>
               <h4>Mr Anderson</h4>
               <span>CEO, Main Reviewer</span>
-            </section>
-          </section>
-          <section class="profile">
+            </figcaption>
+          </figure>
+          <figure class="profile">
             <img src="images/trinity.jpg" alt="" />
-            <section>
+            <figcaption>
               <h4>Ms Trinity</h4>
               <span>Assistant, Reviewer, Board Member</span>
-            </section>
-          </section>
+            </figcaption>
+          </figure>
           <a href="#">Meet them all!</a>
-        </section>
-        <section class="sidebar-content weekly-contest">
-          <header>
-            <h3>Weekly Location Contest</h3>
-          </header>
-          <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
-            alt="" /><span> This week's location is:</span><br /> <span
-            class="weekly-location">Sydney, Australia</span> <br /> <a
-            href="#">Have a look!</a>
-        </section>
-        <section class="social">
+        </aside>
+        <aside class="sidebar-content weekly-contest">
+          <h3>Weekly Location Contest</h3>
+          <figure>
+            <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
+              alt="" />
+            <figcaption>
+              <span> This week's location is:</span><br /> <span
+                class="weekly-location">Sydney, Australia</span><br />
+              <a href="#">Have a look!</a>
+            </figcaption>
+          </figure>
+        </aside>
+        <nav class="social">
+          <!-- This is a set of secondary navigation links, they go on a nav -->
           <a class="fb-logo" href="http://facebook.com/"><img
             src='images/facebook-icon.png' /></a><!--  
        --><a class="tweet-logo" href="http://twitter.com/"><img
             src='images/twitter-icon.png' /></a>
-        </section>
-      </aside>
-    </section>
+        </nav>
+      </section>
+    </div>
     <footer id="footer">
       <ul class="nav">
         <li>Disclaimer</li>
@@ -153,6 +160,6 @@
       </ul>
       <span>&#169; Copyright 2014. All rights reserved</span>
     </footer>
-  </section>
+  </div>
 </body>
 </html>

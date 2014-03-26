@@ -12,7 +12,7 @@
 <title>Evaluate Thy Hotel</title>
 </head>
 <body>
-  <section id="main">
+  <div id="main">
     <header id="header">
       <h1>
         <a href="#">Evaluate Thy Hotel</a>
@@ -25,39 +25,35 @@
         </ul>
       </nav>
     </header>
-    <section id="central">
-      <aside id="left-menu" class="sidebar left">
-        <nav>
-          <ul class="menu">
-            <li id="menu-closed"><h3>
-                <a href="#menu-closed">Menu</a>
-              </h3></li>
-            <li><h3>
-                <a href="#">Menu</a>
-              </h3></li>
-            <li><a href="#">Reviewed Hotels</a></li>
-            <li><a href="#">Get Reviewed</a></li>
-            <li><a href="#">Guidelines</a></li>
-            <li><a href="#">User Feedback</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
-        </nav>
-      </aside>
-      <article id="content">
-        <section class="article weekly-suggestion">
-          <header>
-            <h2>
-              <a href="#">ETH suggests..</a>
-            </h2>
-          </header>
-          <section id="main-image">
+    <div id="central">
+      <nav id="left-menu" class="sidebar left">
+        <ul class="menu">
+          <li id="menu-closed"><h3>
+              <a href="#menu-closed">Menu</a>
+            </h3></li>
+          <li><h3>
+              <a href="#">Menu</a>
+            </h3></li>
+          <li><a href="#">Reviewed Hotels</a></li>
+          <li><a href="#">Get Reviewed</a></li>
+          <li><a href="#">Guidelines</a></li>
+          <li><a href="#">User Feedback</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </nav>
+      <section id="content">
+        <article class="weekly-suggestion">
+          <h2>
+            <a href="#">ETH suggests...</a>
+          </h2>
+          <div id="main-image">
             <img draggable="false"
               src='images/sydney-harbour-panorama1bl.jpg' />
-          </section>
-          <section id="thumbnail">
-            <section class="overlay"></section>
+          </div>
+          <div id="thumbnail">
+            <div class="overlay"></div>
             <img src='images/sydney-harbour-panorama1bl-thumbnail.jpg' />
-          </section>
+          </div>
           <h3>This week's winner is... Sydney, Australia</h3>
           <p>Sydney is the state capital of New South Wales and the
             most populous city in Australia. It is on Australia's
@@ -67,43 +63,50 @@
             Sydneysiders, comprising a cosmopolitan and international
             population.</p>
           <p class="quote">"A life without travel is a life unlived"</p>
-          <section class="signature">
-            <img src="images/mranderson.jpg" alt="" /> <span>Mr.
-              Anderson</span>
-          </section>
-        </section>
-      </article>
-      <aside id="right-sidebar">
-        <section class="sidebar-content">
-          <header>
-            <h3>Our last reviews!</h3>
-          </header>
-          <section class="review">
-            <img src="images/mec-paestum-1.jpg" alt="" /> <span>Mec
-              Paestum Hotel</span>
-          </section>
-          <section class="review">
-            <img src="images/hotelbern.jpg" alt="" /> <span>Bellevue
-              Palace Bern</span>
-          </section>
-        </section>
-        <section class="sidebar-content weekly-contest">
-          <header>
-            <h3>Weekly Location Contest</h3>
-          </header>
-          <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
-            alt="" /><span> This week's location is:</span><br /> <span
-            class="weekly-location">Sydney, Australia</span> <br /> <a
-            href="#">Have a look!</a>
-        </section>
-        <section class="social">
+          <figure class="signature">
+            <img src="images/mranderson.jpg" alt="" />
+            <figcaption>
+              <span>Mr. Anderson</span>
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+      <section id="right-sidebar">
+        <aside class="sidebar-content">
+          <h3>Our last reviews!</h3>
+          <figure class="review">
+            <img src="images/mec-paestum-1.jpg" alt="" />
+            <figcaption>
+              <span>Mec Paestum Hotel</span>
+            </figcaption>
+          </figure>
+          <figure class="review">
+            <img src="images/hotelbern.jpg" alt="" />
+            <figcaption>
+              <span>Bellevue Palace Bern</span>
+            </figcaption>
+          </figure>
+        </aside>
+        <aside class="sidebar-content weekly-contest">
+          <h3>Weekly Location Contest</h3>
+          <figure>
+            <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
+              alt="" />
+            <figcaption>
+              <span> This week's location is:</span><br /> <span
+                class="weekly-location">Sydney, Australia</span> <br />
+              <a href="#">Have a look!</a>
+            </figcaption>
+          </figure>
+        </aside>
+        <nav class="social">
           <a class="fb-logo" href="http://facebook.com/"><img
             src='images/facebook-icon.png' /></a><!--  
        --><a class="tweet-logo" href="http://twitter.com/"><img
             src='images/twitter-icon.png' /></a>
-        </section>
-      </aside>
-    </section>
+        </nav>
+      </section>
+    </div>
     <footer id="footer">
       <nav>
         <ul class="nav">
@@ -114,7 +117,8 @@
       </nav>
       <span>&#169; Copyright 2014. All rights reserved</span>
     </footer>
-  </section>
+  </div>
+  <!-- Javascript loaded at the end for speed -->
   <script type="text/javascript" src="js/vendor/jquery-2.1.0.min.js"></script>
   <script type="text/javascript" src="js/interactive-viewport.js"></script>
   <script type="text/javascript" src="js/weekly.js"></script>

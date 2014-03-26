@@ -194,11 +194,10 @@
 .review {
   text-align: center;
   font-weight: bold;
+  margin: 1em auto;
 }
 
 .review img {
-  display: block;
   max-width: 100%;
   height: auto;
-  margin: 1em auto;
 }

@@ -20,7 +20,7 @@
   overflow: hidden;
 }
 
-.article-text p {
+.article p {
   font-size: 1.6em;
 }
 
@@ -28,14 +28,14 @@
   margin-bottom: 0.333em;
 }
 
-.article-text img {
+.article img {
   max-width: 100%;
   height: auto;
   float: left;
   margin-right: 1em;
 }
 
-.article-text p+a {
+.article p+a {
   display: block;
   font-size: 1.6em;
   margin-top: 1.25em;
@@ -133,6 +133,15 @@
   width: auto;
   position: relative;
   left: 0em;
+}
+
+.weekly-suggestion {
+  background-color: #FFF0F5;
+  margin: 1.5em;
+  border-radius: 1em;
+  padding: 1em 1em;
+  line-height: 1.2;
+  overflow: hidden;
 }
 
 .weekly-suggestion h2 {
