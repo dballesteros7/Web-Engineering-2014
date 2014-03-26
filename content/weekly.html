@@ -12,20 +12,23 @@
 <title>Evaluate Thy Hotel</title>
 </head>
 <body>
-  <div id="main">
-    <div id="header">
+  <section id="main">
+    <header id="header">
       <h1>
         <a href="#">Evaluate Thy Hotel</a>
       </h1>
+	  <nav>
       <ul class="nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="weekly.html">Weekly Location</a></li>
         <li><a href="reviewers.html">Reviewers</a></li>
       </ul>
-    </div>
-    <div id="central">
-      <div id="left-menu" class="sidebar left">
-        <ul class="menu">
+	  </nav>
+    </header>
+    <section id="central">
+      <aside id="left-menu" class="sidebar left">
+        <nav>
+		<ul class="menu">
           <li id="menu-closed"><h3>
               <a href="#menu-closed">Menu</a>
             </h3></li>
@@ -38,19 +41,22 @@
           <li><a href="#">User Feedback</a></li>
           <li><a href="#">Contact us</a></li>
         </ul>
-      </div>
-      <div id="content">
-        <div class="article weekly-suggestion">
-          <h2>
+		</nav>
+      </aside>
+      <article id="content">
+        <section class="article weekly-suggestion">
+          <header>
+		  <h2>
             <a href="#">ETH suggests..</a>
           </h2>
-          <div id="main-image">
+		  </header>
+          <section id="main-image">
             <img draggable="false" src='images/sydney-harbour-panorama1bl.jpg' />
-          </div>
-          <div id="thumbnail">
-            <div class="overlay"></div>
+          </section>
+          <section id="thumbnail">
+            <section class="overlay"></section>
             <img src='images/sydney-harbour-panorama1bl-thumbnail.jpg' />
-          </div>
+          </section>
           <h3>This week's winner is... Sydney, Australia</h3>
           <p>Sydney is the state capital of New South Wales and the
             most populous city in Australia. It is on Australia's
@@ -60,48 +66,54 @@
             Sydneysiders, comprising a cosmopolitan and international
             population.</p>
           <p class="quote">"A life without travel is a life unlived"</p>
-          <div class="signature">
+          <section class="signature">
             <img src="images/mranderson.jpg" alt="" /> <span>Mr.
               Anderson</span>
-          </div>
-        </div>
-      </div>
-      <div id="right-sidebar">
-        <div class="sidebar-content">
+          </section>
+        </section>
+      </article>
+      <aside id="right-sidebar">
+        <section class="sidebar-content">
+		  <header> 
           <h3>Our last reviews!</h3>
-          <div class="review">
+          </header>
+		  <section class="review">
             <img src="images/mec-paestum-1.jpg" alt="" /> <span>Mec
               Paestum Hotel</span>
-          </div>
-          <div class="review">
+          </section>
+          <section class="review">
             <img src="images/hotelbern.jpg" alt="" /> <span>Bellevue
               Palace Bern</span>
-          </div>
-        </div>
-        <div class="sidebar-content weekly-contest">
+          </section>
+        </section>
+        <section class="sidebar-content weekly-contest">
+		  <header>
           <h3>Weekly Location Contest</h3>
-          <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
+          </header>
+		  <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
             alt="" /><span> This week's location is:</span><br /> <span
             class="weekly-location">Sydney, Australia</span> <br /> <a
             href="#">Have a look!</a>
-        </div>
-        <div class="social">
+        </section>
+        <section class="social">
           <a class="fb-logo" href="http://facebook.com/"><img
             src='images/facebook-icon.png' /></a><!--  
        --><a class="tweet-logo" href="http://twitter.com/"><img
             src='images/twitter-icon.png' /></a>
-        </div>
-      </div>
-    </div>
-    <div id="footer">
+        </section>
+      </aside>
+    </section>
+    <footer id="footer">
+      <nav>		
       <ul class="nav">
         <li>Disclaimer</li>
         <li>Contact</li>
         <li>Help</li>
       </ul>
+	  </nav>
       <span>&#169; Copyright 2014. All rights reserved</span>
-    </div>
-  </div>
+    </footer>
+  </section>
   <script type="text/javascript" src="js/vendor/jquery-2.1.0.min.js"></script>
   <script type="text/javascript" src="js/interactive-viewport.js"></script>
   <script type="text/javascript" src="js/weekly.js"></script>
