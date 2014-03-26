@@ -167,7 +167,6 @@
 .overlay {
   position: absolute;
   border: 0.4em solid black;
-  width: calc(100% - 0.4em);
   height: calc(100% - 0.8em);
   border-radius: 1em;
 }
