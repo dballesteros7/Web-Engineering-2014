@@ -491,12 +491,12 @@
 	}
 
 	// load attachable behaviours
-	include('js/jquery.multitouch-gestures.js');	// include default gestures
-	include('js/jquery.multitouch-draggable.js');	// include draggable behaviour
-	include('js/jquery.multitouch-scalable.js');	// include scalable behaviour
-	include('js/jquery.multitouch-resizable.js');	// include resizable behaviour
-	include('js/jquery.multitouch-rotatable.js');	// include rotatable behaviour
-	include('js/jquery.multitouch-orientable.js');// include orientable behaviour
+	//include('js/jquery.multitouch-gestures.js');	// include default gestures
+	//include('js/jquery.multitouch-draggable.js');	// include draggable behaviour
+	//include('js/jquery.multitouch-scalable.js');	// include scalable behaviour
+	//include('js/jquery.multitouch-resizable.js');	// include resizable behaviour
+	//include('js/jquery.multitouch-rotatable.js');	// include rotatable behaviour
+	//include('js/jquery.multitouch-orientable.js');// include orientable behaviour
 
 	// init jQMultiTouch
 	$(function() {

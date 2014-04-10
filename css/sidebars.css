@@ -38,15 +38,6 @@
   font-size: 1.6em;
 }
 
-/* Hidden menu element for accordion functionality */
-#left-menu .menu li:nth-child(2) {
-  display: none;
-  border-bottom: 0em;
-  background-color: #FFF0F5;
-  padding: 0.2em 0em;
-  text-align: center;
-}
-
 /* Format the divs on the right part */
 #right-sidebar {
   position: absolute;

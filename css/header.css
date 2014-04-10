@@ -9,7 +9,11 @@
 }
 
 #header h1 {
-  margin-bottom: 0.278em;
+  margin-bottom: 0.139em;
+}
+
+#header h4 {
+  margin-bottom: 0.555em;
 }
 
 #header .nav li {

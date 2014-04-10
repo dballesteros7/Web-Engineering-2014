@@ -35,9 +35,8 @@
   margin-right: 1em;
 }
 
-.article p+a {
+.more-link {
   display: block;
-  font-size: 1.6em;
   margin-top: 1.25em;
   margin-bottom: 0.625em;
   font-weight: bold;
@@ -51,8 +50,18 @@
 .article.link {
   font-size: 1.6em;
   font-weight: bold;
-  text-align: center;
   margin: 0.938em;
+}
+
+.article.link li {
+  display: inline;
+}
+.article.link .previous {
+  float:left;
+}
+
+.article.link .next {
+  float:right;
 }
 
 /* For widths below 1024px, the right sidebar moves down */
@@ -82,9 +91,10 @@
 /* ==========================================================================*/
 /* Reviewers.html */
 /* ==========================================================================*/
-.profile-row :not(:last-of-type){
-    margin-bottom : 1em;
+.profile-row :not (:last-of-type ){
+  margin-bottom: 1em;
 }
+
 .main-profile {
   width: calc(50% - 0.5em);
   display: inline-block;
@@ -213,4 +223,3 @@
     display: none;
   }
 } */
-

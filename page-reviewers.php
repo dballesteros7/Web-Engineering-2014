@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html manifest="manifest.appcache">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<link type="text/css" rel="stylesheet" href="css/reset.css" />
-<link type="text/css" rel="stylesheet" href="css/default.css" />
-<link type="text/css" rel="stylesheet" href="css/header.css" />
-<link type="text/css" rel="stylesheet" href="css/footer.css" />
-<link type="text/css" rel="stylesheet" href="css/sidebars.css" />
-<link type="text/css" rel="stylesheet" href="css/content.css" />
-<title>Evaluate Thy Hotel</title>
-</head>
-<body>
-  <div id="main">
-    <header id="header">
-      <h1>
-        <a href="#">Evaluate Thy Hotel</a>
-      </h1>
-      <nav>
-        <ul class="nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="weekly.html">Weekly Location</a></li>
-          <li><a href="reviewers.html">Reviewers</a></li>
-        </ul>
-      </nav>
-    </header>
+<?php get_header();?>
     <div id="central">
-      <nav id="left-menu" class="sidebar left">
-        <ul class="menu">
-          <li id="menu-closed"><h3>
-              <a href="#menu-closed">Menu</a>
-            </h3></li>
-          <li><h3>
-              <a href="#">Menu</a>
-            </h3></li>
-          <li><a href="#">Reviewed Hotels</a></li>
-          <li><a href="#">Get Reviewed</a></li>
-          <li><a href="#">Guidelines</a></li>
-          <li><a href="#">User Feedback</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
-      </nav>
+<?php get_sidebar('left');?>
       <section id="content">
         <article class="article">
           <h2>
@@ -49,7 +9,7 @@
           <div class="profile-row">
             <!-- Not a section, it is a div for styling purposes -->
             <figure class="main-profile">
-              <img src="images/mranderson.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/mranderson.jpg" alt="" />
               <figcaption>
                 <h3>Mr. Anderson</h3>
                 <p>
@@ -60,7 +20,7 @@
               </figcaption>
             </figure><!--
             --><figure class="main-profile">
-              <img src="images/smith.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/smith.jpg" alt="" />
               <figcaption>
                 <h3>Mr. Smith</h3>
                 <p>
@@ -72,7 +32,7 @@
           </div>
           <div class="profile-row">
             <figure class="main-profile">
-              <img src="images/trinity.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/trinity.jpg" alt="" />
               <figcaption>
                 <h3>Ms Trinity</h3>
                 <p>Assistant Reviewer</p>
@@ -81,7 +41,7 @@
               </figcaption>
             </figure><!--
             --><figure class="main-profile">
-              <img src="images/morpheus.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/morpheus.jpg" alt="" />
               <figcaption>
                 <h3>Mr. Morpheus</h3>
                 <p>Assistant Reviewer</p>
@@ -92,7 +52,7 @@
           </div>
           <div class="profile-row">
             <figure class="main-profile">
-              <img src="images/mouse.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/mouse.jpg" alt="" />
               <figcaption>
                 <h3>Mr. Mouse</h3>
                 <p>Draft Optimiser</p>
@@ -101,7 +61,7 @@
               </figcaption>
             </figure><!--
          --><figure class="main-profile">
-              <img src="images/chong.jpg" alt="" />
+              <img src="<?php echo get_template_directory_uri(); ?>/images/chong.jpg" alt="" />
               <figcaption>
                 <h3>Mr. Tank</h3>
                 <p>Administrative Assistant</p>
@@ -116,13 +76,13 @@
         <aside class="sidebar-content">
           <h3>Our last reviews!</h3>
           <figure class="review">
-            <img src="images/mec-paestum-1.jpg" alt="" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/mec-paestum-1.jpg" alt="" />
             <figcaption>
               <span>Mec Paestum Hotel</span>
             </figcaption>
           </figure>
           <figure class="review">
-            <img src="images/hotelbern.jpg" alt="" />
+            <img src="<?php echo get_template_directory_uri(); ?>/images/hotelbern.jpg" alt="" />
             <figcaption>
               <span>Bellevue Palace Bern</span>
             </figcaption>
@@ -131,7 +91,7 @@
         <aside class="sidebar-content weekly-contest">
           <h3>Weekly Location Contest</h3>
           <figure>
-            <img src="images/sydney-harbour-panorama1bl-thumbnail.jpg"
+            <img src="<?php echo get_template_directory_uri(); ?>/images/sydney-harbour-panorama1bl-thumbnail.jpg"
               alt="" />
             <figcaption>
               <span> This week's location is:</span><br /> <span
@@ -142,33 +102,10 @@
         </aside>
         <nav class="social">
           <a class="fb-logo" href="http://facebook.com/"><img
-            src='images/facebook-icon.png' /></a><!--  
+            src='<?php echo get_template_directory_uri(); ?>/images/facebook-icon.png' /></a><!--  
        --><a class="tweet-logo" href="http://twitter.com/"><img
-            src='images/twitter-icon.png' /></a>
+            src='<?php echo get_template_directory_uri(); ?>/images/twitter-icon.png' /></a>
         </nav>
       </section>
     </div>
-    <footer id="footer">
-      <nav>
-        <ul class="nav">
-          <li>Disclaimer</li>
-          <li>Contact</li>
-          <li>Help</li>
-        </ul>
-      </nav>
-      <span>&#169; Copyright 2014. All rights reserved</span>
-    </footer>
-  </div>
-  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-scalable.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-rotatable.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-resizable.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-orientable.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-gestures.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch-draggable.js"></script>
-  <script type="text/javascript" src="js/jquery.multitouch.js"></script>
-  <script type="text/javascript" src="js/swap.js"></script>
-
- 
-</body>
-</html>
+<?php get_footer();?>

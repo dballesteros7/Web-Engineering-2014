@@ -7,3 +7,53 @@ Author URI: http://www.google.com
 Version: 1.0
 */
 
+/* These rules affect all elements in the page */
+/* Make the anchors inside to not have that 90's underlining */
+a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+/* General font is Arial, sans-serif
+   The main background is kind of pinkish */
+body {
+  background-color: #FFF0F5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%; /* 16px * 0.625 = 10px */
+}
+
+/* Make sure the main div spans the whole width */
+#main {
+  max-width: 100%;
+}
+
+#central {
+  position: relative;
+}
+
+/* Header definitions */
+h1 {
+  font-weight: 500;
+  font-size: 3.6em;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 3em;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 2.4em;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 1.8em;
+}
+
+/* All images have rounded corners because that is cool */
+img {
+  border-radius: 1em;
+}
