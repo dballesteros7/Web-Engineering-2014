@@ -248,3 +248,32 @@ function interactivePlugin($mainDiv, $thumbDiv){
         });
     };
 }
+
+$.touch.triggerMouseEvents = true;
+$.touch.preventDefault = false;
+$.touch.ready(function() {
+
+	
+		$('#central').touchable({
+							
+			gesture: function(e, touchHistory) {
+					
+				if (touchHistory.match({ finger: 0, deltaX: '<-30', time: '1..200' })) {
+					//Move to left
+					animate();
+				
+				} else if (touchHistory.match({ finger: 0, deltaX: '>30', time: '1..200' })) {
+					//Move to right			
+					animate();							
+				}
+			
+
+			}
+		});
+	}
+
+);
+
+
+			
+	
