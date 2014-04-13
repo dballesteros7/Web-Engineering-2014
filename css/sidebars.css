@@ -11,7 +11,6 @@
 #left-menu {
   float: left;
   width: 15em;
-  background-color: #FFA500;
   padding: 1em;
   border-radius: 1em;
   margin-left: 1em;
@@ -21,7 +20,8 @@
    These elements have extra padding to the right.
    Also padding in the bottom, just 1px. */
 #left-menu .menu li {
-  border-bottom: 0.2em solid #FFF0F5;
+  border-bottom-width: 0.2em;
+  border-bottom-style: solid;
   margin-top: 0.5em;
   padding: 0.2em 2em 0.2em 0em;
 }
@@ -29,7 +29,6 @@
    different background and centered text */
 #left-menu .menu li:first-child {
   border-bottom: 0em;
-  background-color: #FFF0F5;
   padding: 0.2em 0em;
   text-align: center;
 }
@@ -49,7 +48,6 @@
 
 /* Make the sidebar rounded boxes with background color */
 .sidebar-content {
-  background-color: #FFA500;
   border-radius: 1em;
   padding: 1em;
   margin-bottom: 1em;

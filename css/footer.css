@@ -5,7 +5,6 @@
 
 /* The footer is at the bottom with nothing on its sides, it starts where the menu ends */
 #footer {
-  color: #808080;
   clear: both;
   margin: 1em 1em 1em 19em;
   line-height: 2;

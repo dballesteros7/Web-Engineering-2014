@@ -18,11 +18,15 @@
 
 #header .nav li {
   display: inline-block;
-  background-color: #FFA500;
   padding: 0.5em;
   border: 0.2em solid #C0C0C0;
 }
 
 #header .nav li a {
   font-size: 1.6em;
+}
+
+#header img {
+  max-height: 100%;
+  width: auto;
 }

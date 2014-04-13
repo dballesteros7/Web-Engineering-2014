@@ -21,6 +21,9 @@
 <body>
   <div id="main">
     <header id="header">
+      <?php if(get_theme_mod('logo_image')): ?>
+      <img src="<?php echo get_theme_mod('logo_image');?>" >
+      <?php endif;?>
       <h1>
         <a href="#"><?php bloginfo('name');?></a>
       </h1>

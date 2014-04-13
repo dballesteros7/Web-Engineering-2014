@@ -6,13 +6,11 @@
 #content {
   width: calc(80% - 21em);
   display: inline-block;
-  background-color: #FFA500;
   border-radius: 1em;
   margin: 0em 1em 0em 1em;
 }
 
 .article {
-  background-color: #FFF0F5;
   margin: 1.5em;
   border-radius: 1em;
   padding: 1em 1em;
@@ -99,10 +97,7 @@
   width: calc(50% - 0.5em);
   display: inline-block;
   vertical-align: top;
-}
-
-.main-profile:first-of-type {
-  margin-right: 1em;
+  margin-bottom: 1em;
 }
 
 .main-profile p {
@@ -146,7 +141,6 @@
 }
 
 .weekly-suggestion {
-  background-color: #FFF0F5;
   margin: 1.5em;
   border-radius: 1em;
   padding: 1em 1em;
@@ -204,22 +198,3 @@
   font-size: 1.6em;
   font-weight: bold;
 }
-
-/*
-@media ( orientation : landscape) {
-  #main-image {
-    overflow-x: auto;
-  }
-}
-*/
-
-/* @media ( orientation : portrait) {
-  #main-image img {
-    max-width: 100%;
-    height: auto;
-    max-height: none;
-  }
-  .thumbnail {
-    display: none;
-  }
-} */
