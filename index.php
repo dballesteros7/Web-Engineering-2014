@@ -13,7 +13,7 @@
       <?php the_content('Read more...');?>
       <footer class="article-author">
         <!-- This div looks more like a footer, semantically speaking -->
-        <a href="#"><?php the_date('l, F j, Y');?> by <?php the_author();?></a>
+        <a href="#"><?php echo get_the_date('l, F j, Y');?> by <?php the_author();?></a>
       </footer>
     </article>
     <?php endwhile;?>
