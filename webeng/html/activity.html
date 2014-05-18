@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html ng-app="activityPage">
+<head>
+<meta charset="UTF-8">
+<title>ETHZ Meetup</title>
+<link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-cloak ng-controller="ActivityPageCtrl">
+  <div class="container">
+    <div class="page-header">
+      <h1>
+        {{activity.name}} <small>{{activity.city}} ({{vote_count}})</small>
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h2 class="panel-title">Dates</h2>
+              </div>
+              <div class="panel-body">
+                <dl class="dl-horizontal">
+                  <dt>Start date:</dt>
+                  <dd>{{activity.start_date}}</dd>
+                  <dt>Duration:</dt>
+                  <dd>{{activity.duration}}</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h2 class="panel-title">Description</h2>
+              </div>
+              <div class="panel-body">{{activity.description}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            {% if activity.image %}
+            <div class="well">
+              <img class="img-responsive" src="{{activity.image}}">
+               <a class="btn btn-primary btn-block"
+              href="/edit/activity/{{activity.id}}/images/">A better
+                image is worth a million words!</a>
+            </div>
+            {% else %}
+            {% if is_owner %}
+            <div class="well">
+              <a class="btn btn-primary btn-block"
+              href="/edit/activity/{{activity.id}}/images/">An
+                image is worth a thousand words!</a>
+            </div>
+            {% else %}
+            <div class="well">
+              <p>There is no image to show :(</p>
+            </div>
+            {% endif %}
+            {% endif %}
+          </div>
+        </div>
+        {% if is_owner and not activity.definitive %}
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="btn btn-success btn-block"
+              href="/edit/activity/{{activity.id}}/definitive/">Make definitive!</a>
+          </div>
+        </div>
+        {% elif activity.definitive %}
+        <div class="row">
+          <div class="col-xs-12">
+          <a class="btn btn-success btn-block">Activity is definitive - Get ready!</a>
+          </div>
+        </div>
+        {% else %}
+                <div class="row">
+          <div class="col-xs-12">
+          <a class="btn btn-danger btn-block">Activity is not definitive - Things can change!</a>
+                    </div>
+        </div>
+        {% endif %}
+        {% if is_owner and not activity.definitive %}
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+          <h2>Edit activity
+          <button class="btn btn-default" ng-click="formShowButtomAction($event)">{% verbatim %}{{showEditFormMsg}}{% endverbatim %}</button></h2>
+            <form class="form-horizontal" action="/edit/activity/{{activity.id}}/"
+              method="POST" ng-show="showEditForm">
+              {% if activity_success %}
+            <div class="alert alert-success">Activity edited:
+              {{activity_success_name}}</div>
+            {% endif %} {% if activity_error %}
+            <div class="alert alert-danger">{{activity_error_message}}</div>
+            {% endif %}
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Name:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="text"
+                    placeholder="Hiking in Uetliberg"
+                    id="activity_name"
+                    name="activity_name"
+                    value="{{activity.name}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">City:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="text"
+                    placeholder="Zürich"
+                    id="activity_city"
+                    name="activity_city"
+                    value="{{activity.city}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Start date:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="datetime-local"
+                   id="activity_date"
+                   name="activity_date"
+                   value="{{activity.start_date_formatted}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Duration:</label>
+                </div>
+                <div class="col-xs-6">
+                  <input class="form-control" type="text"
+                  id="activity_duration"
+                  name="activity_duration"
+                  value="{{activity.duration}}">
+                </div>
+                <div class="col-xs-2">
+                  <p class="form-control-static">hours</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Description:</label>
+                </div>
+                <div class="col-xs-8">
+                  <textarea class="form-control" rows="4"
+                  id="activity_description"
+                  name="activity_description">{{activity.description}}</textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-4">
+                  <button class="btn btn-primary btn-block">Edit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-12">
+          {% if user_already_voted %}
+            <a class="btn btn-warning btn-block" href="/edit/activity/{{activity.id}}/thumbsup/remove">Remove thumbs up :(</a>
+          {% else %}
+            <a class="btn btn-success btn-block" href="/edit/activity/{{activity.id}}/thumbsup">Give thumbs up :)</a>
+          {% endif %}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Recent votes</h2>
+            <ul class="list-group">
+            {% for vote in last_votes %}
+              <li class="list-group-item">{{vote.user.username}} gave thumbs up!</li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript"
+    src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript" src="/static/js/activity.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html ng-app="groupPage">
+<head>
+<meta charset="UTF-8">
+<title>ETHZ Meetup</title>
+<link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+  href="/static/css/group.css">
+</head>
+<body ng-cloak>
+  <div class="container" ng-controller="EditGroupDetailsCtrl">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>{{group.name}}</h1>
+            <h3>City: <i>{{group.city}}</i></h3>
+            <h3>Owner: <i>{{group.owner.username}}</i></h3>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Current members</h3>
+            <ul class="list-group">
+              {% for member in group_members %}
+              <li class="list-group-item" ng-init="members[{{forloop.counter0}}] = '{{member.username}}'">{{member.username}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% if is_owner %}
+        <div class="row">
+          <div class="col-xs-12">
+          <h3>Edit group details</h3>
+          <button class="btn btn-default" ng-click="formShowButtomAction()">{% verbatim %}{{showEditFormMsg}}{% endverbatim %}</button>
+          <form class="form-horizontal" ng-show="showEditForm"
+            action="/edit/group/{{group.id}}/" method="POST">
+          {% if success %}
+            <div class="alert alert-success">Group updated:
+              {{success_group}}</div>
+            {% endif %} {% if error %}
+            <div class="alert alert-danger">{{error_message}}</div>
+            {% endif %}
+          <div class="form-group">
+              <!-- Needs individual div to specify size of input and label -->
+              <div class="col-xs-4">
+                <label class="control-label" for="name">Name:</label>
+              </div>
+              <div class="col-xs-8">
+                <input class="form-control" id="name" name="name"
+                  autofocus value="{{group.name}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- Needs individual div to specify size of input and label -->
+              <div class="col-xs-4">
+                <label class="control-label" for="city">City:</label>
+              </div>
+              <div class="col-xs-8">
+                <input class="form-control" id="city" name="city"
+                  autofocus value="{{group.city}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- Needs individual div to specify size of input and label -->
+              <div class="col-xs-4">
+                <label class="control-label" for="new-member">Potential members:</label>
+              </div>
+              <div class="col-xs-8">
+                <select class="form-control" id="new-member"
+                  name="new-member" autofocus ng-model="selectedMember">
+                  {% for member in members %}
+                  <option
+                    value="{{member.username}}">{{member.username}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-6">
+                <button class="btn btn-success btn-block"
+                  ng-click="addMember($event)">Add member</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn btn-warning btn-block"
+                  ng-click="removeLastMember($event)">Remove
+                  last member</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <!-- https://docs.djangoproject.com/en/1.5/ref/templates/builtins/#verbatim -->
+                <textarea id="members" name="members" rows="10"
+                  class="form-control" readonly>{% verbatim %}{{memberList}}{% endverbatim %}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- Left side 8, then width is 4 -->
+              <div class="col-xs-12">
+                <!--  Submit button -->
+                <input type="submit" class="btn btn-primary btn-block"
+                  value="Edit">
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-xs-6">
+        {% if is_owner %}
+        <div class="row">
+          <div class="col-xs-12">
+            <form class="form-horizontal" action="/create/group/{{group.id}}/activity/"
+              method="POST">
+              <h3>Create new activity</h3>
+              {% if activity_success %}
+            <div class="alert alert-success">Activity created:
+              {{activity_success_name}}</div>
+            {% endif %} {% if activity_error %}
+            <div class="alert alert-danger">{{activity_error_message}}</div>
+            {% endif %}
+              <hr>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Name:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="text"
+                    placeholder="Hiking in Uetliberg"
+                    id="activity_name"
+                    name="activity_name">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">City:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="text"
+                    placeholder="Zürich"
+                    id="activity_city"
+                    name="activity_city">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Start date:</label>
+                </div>
+                <div class="col-xs-8">
+                  <input class="form-control" type="datetime-local"
+                   id="activity_date"
+                   name="activity_date">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Duration:</label>
+                </div>
+                <div class="col-xs-6">
+                  <input class="form-control" type="text"
+                  id="activity_duration"
+                  name="activity_duration">
+                </div>
+                <div class="col-xs-2">
+                  <p class="form-control-static">hours</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-4">
+                  <label class="control-label">Description:</label>
+                </div>
+                <div class="col-xs-8">
+                  <textarea class="form-control" rows="4"
+                  id="activity_description"
+                  name="activity_description"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-4">
+                  <button class="btn btn-primary btn-block">Create</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% endif %}
+          <div class="row">
+            <div class="col-xs-12">
+              <h3>Upcoming activities</h3>
+              <hr>
+              <div class="list-group">
+              {% for activity_ranked in upcoming_activities %} <a
+                class="list-group-item {%if activity_ranked.activity.definitive %}list-group-item-success{% endif %}" href="/activity/{{activity_ranked.activity.id}}/">{{activity_ranked.activity.name}}
+                ({{activity_ranked.activity.city}}) - {{activity_ranked.activity.start_date}} <span class="badge">{{activity_ranked.thumbs_up}}</span></a> {% endfor %}
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script type="text/javascript" src="/static/js/group.js"></script>
+</body>
+</html>

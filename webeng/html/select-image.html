@@ -1,0 +1,45 @@
+<!-- http://angular-ui.github.io/bootstrap/#/modal -->
+<!-- http://cdnjs.com/ -->
+<!DOCTYPE html>
+<html ng-app="activityPage">
+<head>
+<meta charset="UTF-8">
+<title>ETHZ Meetup</title>
+<link rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body ng-controller="AddImageCtrl">
+  <div class="container">
+    <div class="col-xs-12">
+      <h2>Image search</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label class="control-label">Tags:</label>
+            </div>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" ng-model="tags">
+            </div>
+            <div class="col-xs-3">
+              <button class="btn btn-primary btn-block"
+                ng-click="searchImages()">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-repeat="image in images" class="col-xs-2">
+        <a href="/edit/activity/{{activity_id}}/attach/?image_url={% verbatim %}{{encodeURIComponent(image)}}{% endverbatim %}"><img class="img-responsive" ng-src="{% verbatim %}{{image}} {% endverbatim %}"></a>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript"
+    src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script type="text/javascript" src="/static/js/activity.js"></script>
+</body>
+</html>

@@ -2,3 +2,7 @@
 *.project
 *.settings
 images/
+
+# python stuff
+env/
+*.pydevproject
