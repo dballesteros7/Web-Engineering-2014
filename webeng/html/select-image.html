@@ -1,45 +1,48 @@
-<!-- http://angular-ui.github.io/bootstrap/#/modal -->
-<!-- http://cdnjs.com/ -->
-<!DOCTYPE html>
-<html ng-app="activityPage">
-<head>
-<meta charset="UTF-8">
-<title>ETHZ Meetup</title>
-<link rel="stylesheet"
-  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-<body ng-controller="AddImageCtrl">
-  <div class="container">
-    <div class="col-xs-12">
+{% extends "layout.html" %}
+{% block ngapp %}ng-app=activityPage {% endblock ngapp %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/search.css">
+{% endblock css %}
+
+{% block main %}
+  <div ng-controller="AddImageCtrl" class="container">
+    <div class="page-header">
       <h2>Image search</h2>
-      <hr>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <form class="form-horizontal">
           <div class="form-group">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
               <label class="control-label">Tags:</label>
             </div>
             <div class="col-xs-6">
               <input type="text" class="form-control" ng-model="tags">
             </div>
-            <div class="col-xs-3">
+            <div ng-hide="searching" class="col-xs-2">
               <button class="btn btn-primary btn-block"
                 ng-click="searchImages()">Search</button>
+            </div>
+            <div ng-show="searching" class="col-xs-2">
+              <p class="form-control-static">Searching...</p>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div class="row">
-      <div ng-repeat="image in images" class="col-xs-2">
-        <a href="/edit/activity/{{activity_id}}/attach/?image_url={% verbatim %}{{encodeURIComponent(image)}}{% endverbatim %}"><img class="img-responsive" ng-src="{% verbatim %}{{image}} {% endverbatim %}"></a>
+    <div ng-repeat="image_chunk in image_chunks" class="row">
+      <div ng-repeat="image in image_chunk" class="col-xs-2">
+        <div class="thumbnail search-thumbnail"><img ng-src="{% verbatim %}{{image}} {% endverbatim %}">
+          <div class="caption">
+            <p><a href="/edit/activity/{{activity_id}}/attach/?image_url={% verbatim %}{{encodeURIComponent(image)}}{% endverbatim %}" class="btn btn-block btn-success">Pick me!</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+{% endblock main %}
+{% block jslibs %}
   <script type="text/javascript"
     src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script type="text/javascript" src="/static/js/activity.js"></script>
-</body>
-</html>
+{% endblock jslibs %}

@@ -18,7 +18,9 @@ angular.module('activityPage', []).controller(
     [ '$scope', '$http', '$location', function($scope, $http, $location){
       $scope.tags = '';
       $scope.encodeURIComponent = encodeURIComponent;
+      $scope.searching = false;
       $scope.searchImages = function(){
+        $scope.searching = true;
         $http({
           url : '/flickr/',
           method : 'POST',
@@ -26,7 +28,14 @@ angular.module('activityPage', []).controller(
             tags : $scope.tags
           })
         }).success(function(data, status, headers){
-          $scope.images = data.photos;
+          $scope.searching = false;
+          $scope.image_chunks = [];
+          data.photos.forEach(function(ele, idx){
+            if(idx % 6 === 0){
+              $scope.image_chunks.push([]);
+            }
+            $scope.image_chunks[$scope.image_chunks.length - 1].push(ele);
+          });
         });
       };
     } ]);

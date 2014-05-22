@@ -6,3 +6,4 @@ images/
 # python stuff
 env/
 *.pydevproject
+*pyc

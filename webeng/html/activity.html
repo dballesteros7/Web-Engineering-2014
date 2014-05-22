@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html ng-app="activityPage">
-<head>
-<meta charset="UTF-8">
-<title>ETHZ Meetup</title>
-<link rel="stylesheet"
-  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-<body ng-cloak ng-controller="ActivityPageCtrl">
-  <div class="container">
+{% extends "layout.html" %}
+{% block ngapp %}ng-app="activityPage" {% endblock %}
+{% block navbarcontent %}
+<div class="navbar-right">
+  <a class="btn btn-warning navbar-btn" href="/logout">Logout</a>
+</div>
+{% endblock navbarcontent %}
+{% block main %}
+  <div ng-cloak ng-controller="ActivityPageCtrl" class="container">
     <div class="page-header">
       <h1>
         {{activity.name}} <small>{{activity.city}} ({{vote_count}})</small>
@@ -47,9 +46,11 @@
             {% if activity.image %}
             <div class="well">
               <img class="img-responsive" src="{{activity.image}}">
+              {% if is_owner %}
                <a class="btn btn-primary btn-block"
               href="/edit/activity/{{activity.id}}/images/">A better
                 image is worth a million words!</a>
+              {% endif %}
             </div>
             {% else %}
             {% if is_owner %}
@@ -193,10 +194,11 @@
       </div>
     </div>
   </div>
+{% endblock main %}
+{% block jslibs %}
   <script type="text/javascript"
     src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script type="text/javascript"
     src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
   <script type="text/javascript" src="/static/js/activity.js"></script>
-</body>
-</html>
+{% endblock jslibs %}

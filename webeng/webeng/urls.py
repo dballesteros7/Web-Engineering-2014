@@ -25,5 +25,7 @@ urlpatterns = patterns('',
     url(r'^edit/activity/(?P<activity_id>[0-9]+)/images/$', views.search_for_images, name='search-images'),
     url(r'^edit/activity/(?P<activity_id>[0-9]+)/attach/$', views.attach_image, name='attach-image'),
     url(r'^flickr/$', views.get_flickr_images, name='flickr-service'),
+    url(r'^sign_in_twitter/$', views.auth_flow_twitter, name='twitter-oauth-1'),
+    url(r'^twitter_callback/$', views.auth_flow_twitter_2, name='twitter-oauth-2'),
     url(r'^logout/$', views.logout, name='logout')
 )

@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ETHZ Meetup</title>
-<link rel="stylesheet"
-  href="/static/css/login.css">
-<link rel="stylesheet"
-  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-</head>
-<body>
+{% extends "layout.html" %}
+{% block main %}
   <div class="container">
-  
-    <div id="login-div" class="col-xs-6 col-xs-offset-3">
+    <div class="jumbotron col-xs-6 col-xs-offset-3">
       <form id="login-form" class="form-horizontal" action="/register/complete/"
         method="POST">
         <h3>Please register...</h3>
@@ -52,9 +42,11 @@
           <div class="col-xs-4">
             <button class="btn btn-primary btn-block">Register</button>
           </div>
+          <div class="col-xs-8">
+            <a href="/login/" class="btn btn-warning btn-block">Back</a>
+          </div>
         </div>
       </form>
     </div>
   </div>
-</body>
-</html>
+{% endblock main %}

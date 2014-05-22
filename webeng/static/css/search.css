@@ -1,0 +1,7 @@
+.search-thumbnail {
+  height: 200px;
+}
+
+.search-thumbnail > img {
+  max-height : 130px;
+}

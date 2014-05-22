@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html ng-app="groupPage">
-<head>
-<meta charset="UTF-8">
-<title>ETHZ Meetup</title>
-<link rel="stylesheet"
-  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet"
-  href="/static/css/group.css">
-</head>
-<body ng-cloak>
-  <div class="container" ng-controller="EditGroupDetailsCtrl">
+{% extends "layout.html" %}
+{% block ngapp %} ng-app="groupPage" {% endblock ngapp %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/group.css">
+{% endblock css %}
+{% block navbarcontent %}
+<div class="navbar-right">
+  <a class="btn btn-warning navbar-btn" href="/logout">Logout</a>
+</div>
+{% endblock navbarcontent %}
+{% block main %}
+  <div ng-cloak class="container" ng-controller="EditGroupDetailsCtrl">
     <div class="row">
       <div class="col-xs-6">
         <div class="row">
@@ -201,8 +201,9 @@
       </div>
     </div>
   </div>
+{% endblock main %}
+{% block jslibs %}
     <script type="text/javascript"
     src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script type="text/javascript" src="/static/js/group.js"></script>
-</body>
-</html>
+{% endblock jslibs %}

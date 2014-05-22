@@ -2,7 +2,6 @@ from datetime import datetime
 import json
 import re
 import urllib
-import flickrapi
 
 from django.contrib.auth.hashers import make_password, check_password
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -10,8 +9,11 @@ from django.core.urlresolvers import reverse
 from django.core.validators import validate_email
 from django.http.response import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+import flickrapi
+from requests_oauthlib import OAuth1Session #http://requests-oauthlib.readthedocs.org/en/latest/oauth1_workflow.html
 
 from ethzmeetup import auth
+from ethzmeetup import secrets
 from ethzmeetup.lexicon import validate_password, InvalidPasswordError
 from ethzmeetup.models import User, MeetupGroup, Activity, Vote
 
@@ -25,7 +27,8 @@ def aux_render_user_page(request, context):
     members = User.objects.exclude(id=user.id)
     context.update({'groups_owned' : groups_owned,
                     'groups_member' : groups_member,
-                    'members' : members})
+                    'members' : members,
+                    'user_not_yet_twitter' : not user.access_token_twitter})
     return render(request, 'user.html', context)
 @auth.requires_auth
 def index(request):
@@ -284,11 +287,27 @@ def edit_activity(request, activity_id):
 @auth.requires_auth
 def make_activity_definitive(request, activity_id):
     try:
+        user = auth.get_current_user(request)
         existing_activity = Activity.objects.get(id=activity_id)
+        if user.id != existing_activity.group.owner.id:
+            return aux_render_activity_page(request, activity_id, {'activity_error' : True,
+                                             'activity_error_message' : 'You are not authorized to make this activity definitive'})
         if existing_activity.definitive:
             raise ValueError('Activity is already definitive.')
         existing_activity.definitive = True
         existing_activity.save()
+        if user.access_token_twitter:
+            twitter = OAuth1Session(secrets.CLIENT_KEY,
+                                    client_secret = secrets.CLIENT_SECRET,
+                                    resource_owner_key=user.access_token_twitter,
+                                    resource_owner_secret=user.access_token_secret_twitter)
+            #http://docs.python-requests.org/en/latest/user/quickstart/#make-a-request
+            try:
+                twitter.post('https://api.twitter.com/1.1/statuses/update.json',
+                         params={'status' : 'Activity %s from group %s is definitive. Be ready!' % (existing_activity.name,
+                                                                                                    existing_activity.group.name)})
+            except:
+                pass # If twitter fails, then well it doesn't really matter
     except ObjectDoesNotExist as odne:
         return aux_render_activity_page(request, activity_id, {'activity_error' : True,
                                              'activity_error_message' : 'Activity does not exist, %s.' % str(odne)})
@@ -380,3 +399,34 @@ def get_flickr_images(request):
         
         response_data = {'photos' : photo_coll}
     return HttpResponse(json.dumps(response_data), content_type='application/json')
+
+@auth.requires_auth
+def auth_flow_twitter(request):
+    request_token_url = 'https://api.twitter.com/oauth/request_token'
+    oauth = OAuth1Session(secrets.CLIENT_KEY, client_secret=secrets.CLIENT_SECRET,
+                          callback_uri='http://127.0.0.1:8001/twitter_callback')
+    fetch_response = oauth.fetch_request_token(request_token_url)
+    resource_owner_key = fetch_response.get('oauth_token')
+    resource_owner_secret = fetch_response.get('oauth_token_secret')
+    request.session['resource_owner_key'] = resource_owner_key
+    request.session['resource_owner_secret'] = resource_owner_secret
+    base_authorization_url = 'https://api.twitter.com/oauth/authorize'
+    authorization_url = oauth.authorization_url(base_authorization_url)
+    return HttpResponseRedirect(authorization_url)
+
+@auth.requires_auth
+def auth_flow_twitter_2(request):
+    #oauth_token = request.POST['oauth_token']
+    verifier = request.GET['oauth_verifier']
+    access_token_url = 'https://api.twitter.com/oauth/access_token'
+    oauth = OAuth1Session(secrets.CLIENT_KEY,
+                          client_secret=secrets.CLIENT_SECRET,
+                          resource_owner_key=request.session['resource_owner_key'],
+                          resource_owner_secret=request.session['resource_owner_secret'],
+                          verifier=verifier)
+    oauth_tokens = oauth.fetch_access_token(access_token_url)
+    user = auth.get_current_user(request)
+    user.access_token_twitter = oauth_tokens.get('oauth_token')
+    user.access_token_secret_twitter = oauth_tokens.get('oauth_token_secret')
+    user.save()
+    return HttpResponseRedirect(reverse('index'))

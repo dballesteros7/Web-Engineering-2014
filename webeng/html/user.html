@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<!-- AngularJS tag -->
-<!-- Ignore anything that starts with ng -->
-<!-- http://django-angular.readthedocs.org/en/latest/integration.html -->
-<html ng-app="userPage">
-<head>
-<meta charset="UTF-8">
-<title>ETHZ Meetup</title>
-<link rel="stylesheet"
-  href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+{% extends "layout.html" %}
+{% block ngapp %}ng-app="userPage"{% endblock ngapp %}
+{% block css %}
 <link rel="stylesheet" href="/static/css/user.css">
-</head>
-<body>
-  <div class="container">
+{% endblock css %}
+{% block navbarcontent %}
+<div class="navbar-right">
+  {% if user_not_yet_twitter %}
+  <a class="btn btn-success navbar-btn" href="/sign_in_twitter">Link my twitter account</a>
+  {% else %}
+  <a class="btn btn-danger navbar-btn" href="/delete_twitter_link">Unlink my twitter account</a>
+  {% endif %}
+  <a class="btn btn-warning navbar-btn" href="/logout">Logout</a>
+</div>
+{% endblock navbarcontent %}
+{% block main %}
+  <div ng-cloak class="container">
     <div class="row">
-      <div class="col-xs-2 col-xs-offset-10">
-        <a class="btn btn-warning btn-block" href="/logout">Logout</a>
-      </div>
+      
     </div>
     <div class="row">
       <div class="col-xs-6">
@@ -123,8 +124,10 @@
       </div>
     </div>
   </div>
+{% endblock main %}
+{% block jslibs %}
   <script type="text/javascript"
     src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script type="text/javascript" src="/static/js/user.js"></script>
-</body>
-</html>
+{% endblock jslibs %}
+  
